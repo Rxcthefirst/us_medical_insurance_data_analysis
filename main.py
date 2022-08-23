@@ -8,12 +8,24 @@ import pandas as pd
 # -----------------------------------------------------------
 
 
-#  Read in dataframe from csv file and print header to inspect data.
+#  Read in dataset from csv file and create dataframe. Print header to inspect data.
 df = pd.read_csv('insurance.csv')
-#print(df.head())
+print(df)
 
 # -----------------------------------------------------------
 #  Creating a separate dataframe demonstrating how to filter values from a category.
 females = df[df.sex=='female']
-print(females)
+
+
+# -----------------------------------------------------------
+#  Filter original dataframe for people who have at least one child
+one_child_plus = df[df.children>0]
+print(one_child_plus)
+
+# -----------------------------------------------------------
+#  Average age of the data points with at least one child
+number_of_data_points = len(one_child_plus)
+print(sum(one_child_plus['age'])/number_of_data_points)
+
+
 
